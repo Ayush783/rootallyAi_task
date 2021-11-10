@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1009856194603",
+    "firebase_url": "https://aahm-eats.firebaseio.com",
+    "project_id": "aahm-eats",
+    "storage_bucket": "aahm-eats.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009856194603:android:0cf81fcea76b23e407226e",
+        "android_client_info": {
+          "package_name": "com.example.rootallyai_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009856194603-l3gi9tj8f0hmqt8e1osdsgcpjgu10j88.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rootallyai_task",
+            "certificate_hash": "cc8fce31ab2143076f468c8a0d75b1b14f0f9fd8"
+          }
+        },
+        {
+          "client_id": "1009856194603-5h0nrq3qtejllu68pe7vd3748gdfu5ma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbyLAPE_m2jWqEwO45nx2XyFJFb-EhVmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009856194603-5h0nrq3qtejllu68pe7vd3748gdfu5ma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
