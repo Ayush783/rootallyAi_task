@@ -1,4 +1,3 @@
-//@dart=2.9
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -9,11 +8,11 @@ class AuthService {
 
   //sign up
   Future<Usermodel> signUp(
-      {@required String email, @required String password}) async {
+      {@required String? email, @required String? password}) async {
     try {
       final userCred = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      return Usermodel.success(userCred.user);
+          email: email!, password: password!);
+      return Usermodel.success(userCred.user!);
     } catch (e) {
       return Usermodel.failure(e.toString());
     }
@@ -21,13 +20,13 @@ class AuthService {
 
   //sign in
   Future<Usermodel> signIn(
-      {@required String email, @required String password}) async {
+      {@required String? email, @required String? password}) async {
     try {
       final userCred = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      final isVerified = checkEmailVerification(userCred.user);
+          email: email!, password: password!);
+      final isVerified = checkEmailVerification(userCred.user!);
       if (isVerified)
-        return Usermodel.success(userCred.user);
+        return Usermodel.success(userCred.user!);
       else
         return Usermodel.failure('Email not verified');
     } catch (e) {
@@ -36,17 +35,17 @@ class AuthService {
   }
 
   // auth state changes
-  Stream<User> authStateChanges() async* {
+  Stream<User?> authStateChanges() async* {
     yield* _auth.authStateChanges();
   }
 
   //vsend link to verify email
   Future<void> verifyEmail() async {
-    await _auth.currentUser.sendEmailVerification();
+    await _auth.currentUser?.sendEmailVerification();
   }
 
-  bool checkEmailVerification(User user) {
-    final isVerified = user.emailVerified;
+  bool checkEmailVerification(User? user) {
+    final isVerified = user!.emailVerified;
     return isVerified;
   }
 
