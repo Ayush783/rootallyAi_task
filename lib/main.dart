@@ -2,7 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rootallyai_task/services/auth/auth_service.dart';
 import 'package:rootallyai_task/ui/auth/auth_screen.dart';
+import 'package:rootallyai_task/ui/dashboard/dashboard.dart';
 
 import 'bloc/auth_bloc/auth_bloc.dart';
 
@@ -21,7 +23,9 @@ void main() async {
 }
 
 class Rootally extends StatelessWidget {
-  const Rootally({Key? key}) : super(key: key);
+  Rootally({Key? key}) : super(key: key);
+
+  final AuthService authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,7 @@ class Rootally extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: AuthBlocProvider(),
+          body: authService.checkUser() ? Dashboard() : AuthBlocProvider(),
         ),
       ),
     );

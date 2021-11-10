@@ -64,4 +64,9 @@ class AuthService {
       {@required String? code, @required String? newPassword}) async {
     await _auth.confirmPasswordReset(code: code!, newPassword: newPassword!);
   }
+
+  //check if there is any user logged in
+  bool checkUser() {
+    return _auth.currentUser != null ? true : false;
+  }
 }
