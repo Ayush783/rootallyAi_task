@@ -7,3 +7,4 @@ linter:
     sized_box_for_whitespace: false
     prefer_initializing_formals: false
     curly_braces_in_flow_control_structures: false
+    avoid_print: false
