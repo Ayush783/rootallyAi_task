@@ -10,6 +10,7 @@ import 'package:rootallyai_task/ui/auth/widgets/signup_form.dart';
 import 'package:rootallyai_task/ui/common/styles.dart';
 import 'package:rootallyai_task/ui/dashboard/dashboard.dart';
 
+//auth screen ui code
 class AuthScreen extends StatelessWidget {
   AuthScreen({Key? key}) : super(key: key);
 
@@ -128,10 +129,10 @@ class AuthBlocListener extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthFailure)
+          //show a snackbar
           showModalBottomSheet(
             context: context,
             builder: (context) => Container(
-              height: 48,
               padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
               color: Colors.red,
               child: Text(
@@ -143,10 +144,12 @@ class AuthBlocListener extends StatelessWidget {
             ),
           );
         else if (state is AuthSuccess)
+          //navigate to dashboard is success
           Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (context) => Dashboard(),
           ));
         else if (state is EmailVerificationSent)
+          //show a snackbar
           showModalBottomSheet(
             context: context,
             builder: (context) => Container(

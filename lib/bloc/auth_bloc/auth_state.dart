@@ -1,5 +1,6 @@
 part of 'auth_bloc.dart';
 
+//various states to update the ui respectively
 @immutable
 abstract class AuthState {}
 

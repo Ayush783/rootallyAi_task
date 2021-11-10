@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+//model for storing the user or error in case of failure
 class Usermodel {
   final dynamic user;
   final bool error;

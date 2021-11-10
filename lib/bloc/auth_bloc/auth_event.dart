@@ -1,5 +1,6 @@
 part of 'auth_bloc.dart';
 
+//various events for different functionalities
 @immutable
 abstract class AuthEvent {}
 

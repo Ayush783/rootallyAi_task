@@ -37,6 +37,7 @@ class Rootally extends StatelessWidget {
   }
 }
 
+//provide bloc to auth screen and its descendants
 class AuthBlocProvider extends StatelessWidget {
   const AuthBlocProvider({Key? key}) : super(key: key);
 

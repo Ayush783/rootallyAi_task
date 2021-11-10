@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//custom styles for buttons, text fields, texts etc
 InputDecoration inputDecoration(String hint) => InputDecoration(
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.black, width: 2),
