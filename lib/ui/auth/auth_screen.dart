@@ -16,6 +16,7 @@ class AuthScreen extends StatelessWidget {
 
   final TextEditingController email = TextEditingController();
   final TextEditingController pass = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,10 +59,12 @@ class AuthScreen extends StatelessWidget {
                     ? SignupForm(
                         email: email,
                         pass: pass,
+                        formKey: formKey,
                       )
                     : SigninForm(
                         email: email,
                         pass: pass,
+                        formKey: formKey,
                       ),
                 SizedBox(
                   height: size.height * 0.03,
@@ -70,11 +73,12 @@ class AuthScreen extends StatelessWidget {
                   width: size.width,
                   child: OutlinedButton(
                     onPressed: () {
-                      context.read<AuthBloc>().add(
-                            toggleForm.value
-                                ? SignupEvent(email.text, pass.text)
-                                : SigninEvent(email.text, pass.text),
-                          );
+                      if (formKey.currentState!.validate())
+                        context.read<AuthBloc>().add(
+                              toggleForm.value
+                                  ? SignupEvent(email.text, pass.text)
+                                  : SigninEvent(email.text, pass.text),
+                            );
                     },
                     child: BlocBuilder<AuthBloc, AuthState>(
                       builder: (context, state) {
