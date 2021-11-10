@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rootallyai_task/ui/auth/signin_screen.dart';
+import 'package:rootallyai_task/ui/auth/auth_screen.dart';
+
+import 'bloc/auth_bloc/auth_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,9 +30,21 @@ class Rootally extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: SigninScreen(),
+          body: AuthBlocProvider(),
         ),
       ),
+    );
+  }
+}
+
+class AuthBlocProvider extends StatelessWidget {
+  const AuthBlocProvider({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => AuthBloc(),
+      child: AuthBlocListener(),
     );
   }
 }

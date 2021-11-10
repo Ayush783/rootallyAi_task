@@ -27,7 +27,6 @@ class SignupForm extends StatelessWidget {
             cursorColor: Colors.black,
             cursorHeight: 24,
             cursorRadius: Radius.circular(50),
-            obscureText: true,
             style: textStyle1,
             controller: email,
           ),

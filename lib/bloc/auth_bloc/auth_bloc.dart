@@ -15,10 +15,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthStarted());
         final userModel =
             await _authService.signUp(email: event.email, password: event.pass);
+
         if (userModel.error)
           emit(AuthFailure(userModel.errorMessage));
-        else
+        else {
+          await _authService.verifyEmail();
           emit(EmailVerificationSent());
+          add(SignOut());
+        }
       }
       //event for sign in
       if (event is SigninEvent) {
