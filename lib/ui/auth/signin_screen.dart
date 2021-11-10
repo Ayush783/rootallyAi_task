@@ -39,29 +39,7 @@ class SigninScreen extends StatelessWidget {
             SizedBox(
               height: 16,
             ),
-            Form(
-                child: Column(
-              children: [
-                TextFormField(
-                  decoration: inputDecoration('Email address'),
-                  style: textStyle1,
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                TextFormField(
-                  decoration: inputDecoration('Password'),
-                ),
-              ],
-            )),
-            TextButton(
-              child: Text(
-                'Forgot password?',
-                style: textStyle1.copyWith(fontWeight: FontWeight.w600),
-              ),
-              onPressed: () {},
-              style: buttonStyle2,
-            ),
+            SigninForm(),
             SizedBox(
               height: size.height * 0.03,
             ),
@@ -85,5 +63,124 @@ class SigninScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+//login form widget
+class SigninForm extends StatelessWidget {
+  const SigninForm({
+    Key? key,
+    this.email,
+    this.pass,
+  }) : super(key: key);
+
+  final TextEditingController? email;
+  final TextEditingController? pass;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextFormField(
+          decoration: inputDecoration('Email address'),
+          cursorColor: Colors.black,
+          cursorHeight: 24,
+          cursorRadius: Radius.circular(50),
+          obscureText: true,
+          style: textStyle1,
+          controller: email,
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Stack(
+          children: [
+            TextFormField(
+              decoration: inputDecoration('Password'),
+              cursorColor: Colors.black,
+              cursorHeight: 24,
+              cursorRadius: Radius.circular(50),
+              obscureText: true,
+              style: textStyle1,
+              controller: pass,
+            ),
+            Positioned(
+              right: 16,
+              top: 12,
+              bottom: 12,
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(Icons.remove_red_eye_outlined),
+              ),
+            ),
+          ],
+        ),
+        TextButton(
+          child: Text(
+            'Forgot password?',
+            style: textStyle1.copyWith(fontWeight: FontWeight.w600),
+          ),
+          onPressed: () {},
+          style: buttonStyle2,
+        ),
+      ],
+    ));
+  }
+}
+
+class SignupForm extends StatelessWidget {
+  const SignupForm({
+    Key? key,
+    this.email,
+    this.pass,
+  }) : super(key: key);
+
+  final TextEditingController? email;
+  final TextEditingController? pass;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextFormField(
+          decoration: inputDecoration('Email address'),
+          cursorColor: Colors.black,
+          cursorHeight: 24,
+          cursorRadius: Radius.circular(50),
+          obscureText: true,
+          style: textStyle1,
+          controller: email,
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Stack(
+          children: [
+            TextFormField(
+              decoration: inputDecoration('Password'),
+              cursorColor: Colors.black,
+              cursorHeight: 24,
+              cursorRadius: Radius.circular(50),
+              obscureText: true,
+              style: textStyle1,
+              controller: pass,
+            ),
+            Positioned(
+              right: 16,
+              top: 12,
+              bottom: 12,
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(Icons.remove_red_eye_outlined),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ));
   }
 }
