@@ -67,6 +67,23 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
         bottomNavigationBar: BottomNavBar(),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          backgroundColor: Colors.blue,
+          icon: Icon(
+            Icons.play_arrow_rounded,
+            size: 28,
+          ),
+          label: Text(
+            "Start Session",
+            style: textStyle1.copyWith(fontWeight: FontWeight.bold),
+          ),
+          extendedPadding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+            side: BorderSide(color: Colors.black, width: 2),
+          ),
+        ),
       ),
     );
   }
