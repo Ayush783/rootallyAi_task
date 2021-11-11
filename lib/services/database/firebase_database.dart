@@ -6,12 +6,12 @@ class DatabaseService {
   Future<SessionList> getSessions(String userId) async {
     try {
       final snapshot = await _database.child(userId).get();
-      final data =
-          List.from(snapshot.value).map((e) => Sessions.fromJson(e)).toList();
+      final data = List.from(snapshot.value).map((e) {
+        final Map<String, dynamic> json = Map<String, dynamic>.from(e);
+        return Sessions.fromJson(json);
+      }).toList();
       return SessionList.success(data);
-      // _service.getSessions('ZvivlLcROdVhXF3XPZMT1ctLvJt2');
     } catch (e) {
-      print(e.toString());
       return SessionList.failure(e.toString());
     }
   }
