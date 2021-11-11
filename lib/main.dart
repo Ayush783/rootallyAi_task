@@ -34,7 +34,11 @@ class Rootally extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: authService.checkUser() ? Dashboard() : AuthBlocProvider(),
+          body: authService.checkUser()
+              ? DatabaseBlocProvider(
+                  userId: authService.getUser().uid,
+                )
+              : AuthBlocProvider(),
         ),
       ),
     );

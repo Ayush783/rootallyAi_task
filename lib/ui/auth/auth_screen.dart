@@ -150,7 +150,9 @@ class AuthBlocListener extends StatelessWidget {
         else if (state is AuthSuccess)
           //navigate to dashboard is success
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => Dashboard(),
+            builder: (context) => DatabaseBlocProvider(
+              userId: state.user.uid,
+            ),
           ));
         else if (state is EmailVerificationSent)
           //show a snackbar

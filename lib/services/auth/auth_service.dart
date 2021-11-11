@@ -69,4 +69,9 @@ class AuthService {
   bool checkUser() {
     return _auth.currentUser != null ? true : false;
   }
+
+  //get the current user
+  User getUser() {
+    return _auth.currentUser!;
+  }
 }
